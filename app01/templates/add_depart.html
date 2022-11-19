@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-cnm">
+<head>
+    <meta charset="UTF-8">
+    <title>部门管理 | OManage</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.2.2/css/bootstrap.min.css' %}">
+</head>
+<body>
+<nav id="fix-dis" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a href="" class="navbar-brand">OManage 员工管理系统</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/depart/list/" class="nav-link">部门操作</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/depart/list/" class="nav-link">用户操作</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/depart/list/" class="nav-link">注册/登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="p-5">
+    <div class="card p-4 w-50">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="departTitle" class="form-label">新建部门 New Department</label>
+                <input type="text" name="title" class="form-control" id="departTitle" aria-describedby="namehelp" value="{{ placeholder }}">
+                <div id="namehelp" class="form-text">此数据会储存至数据库</div>
+            </div>
+            <button type="submit" class="btn btn-primary">提交</button>
+            <a href="" class="btn btn-success">刷新</a>
+            <a href="/depart/list" class="btn btn-outline-danger">返回</a>
+            <span style="color: red">{{ return_msg }}</span>
+        </form>
+    </div>
+</section>
+
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-5.2.2/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
