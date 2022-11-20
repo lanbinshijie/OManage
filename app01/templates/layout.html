@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-cnm">
+<head>
+    <meta charset="UTF-8">
+    <title>部门管理 | OManage</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.2.2/css/bootstrap.min.css' %}">
+</head>
+<body>
+<nav id="fix-dis" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a href="" class="navbar-brand">OManage 员工管理系统</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/depart/list/" class="nav-link">部门操作</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/depart/list/" class="nav-link">用户操作</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/depart/list/" class="nav-link">注册/登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer class="p-5 bg-dark text-white mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="text-start">
+                    <div>
+                        <strong>OManage - 企业级员工管理系统</strong>
+                        <p>本项目为学习版项目，去<a href="#">详情页</a>了解详情！</p>
+                    </div>
+                    <div class="">Copyright &copy; 2022 Lanbin</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-5.2.2/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
