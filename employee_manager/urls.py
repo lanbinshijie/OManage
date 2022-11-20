@@ -20,8 +20,15 @@ from app01 import views
 urlpatterns = [
     # path('admin/', admin.site.urls),
 
+    # 部门
     path('depart/list/', views.depart_list),
     path('depart/add/', views.depart_add),
     path('depart/delete/', views.depart_delete),
     path('depart/<int:pid>/edit/', views.depart_edit),
+
+    # 用户
+    path('user/list/', views.user_list),
+    # path('depart/add/', views.depart_add),
+    # path('depart/delete/', views.depart_delete),
+    # path('depart/<int:pid>/edit/', views.depart_edit),
 ]

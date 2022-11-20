@@ -15,16 +15,16 @@ def depart_list(request):
 def depart_add(request):
     """ 新建部门 """
     if request.method == "GET":
-        return render(request, "add_depart.html")
+        return render(request, "depart_add.html")
     title = request.POST.get("title")
     if not (title and title != ""):
-        return render(request, "add_depart.html", {"return_msg": "错误！未输入部门名称！", "placeholder": title})
+        return render(request, "depart_add.html", {"return_msg": "错误！未输入部门名称！", "placeholder": title})
 
     if len(models.Department.objects.filter(title=title)) > 0:
-        return render(request, "add_depart.html", {"return_msg": "错误！部门名称重复", "placeholder": title})
+        return render(request, "depart_add.html", {"return_msg": "错误！部门名称重复", "placeholder": title})
 
     models.Department.objects.create(title=title)
-    return render(request, "add_depart.html", {"return_msg": "添加成功！", "placeholder": title})
+    return render(request, "depart_add.html", {"return_msg": "添加成功！", "placeholder": title})
 
 
 def depart_delete(request):
@@ -37,8 +37,16 @@ def depart_edit(request, pid):
     """ 编辑部门 """
     title = models.Department.objects.filter(id=pid).first()
     if request.method == "GET":
-        return render(request, "edit_depart.html", {"pid": pid, "placeholder": title})
+        return render(request, "depart_edit.html", {"pid": pid, "placeholder": title})
 
     new_title = request.POST.get("title")
     models.Department.objects.filter(id=pid).update(title=new_title)
-    return render(request, "edit_depart.html", {"pid": pid, "placeholder": new_title})
+    return render(request, "depart_edit.html", {"pid": pid, "placeholder": new_title})
+
+
+def user_list(request):
+    """
+    MOCK数据
+    """
+    user_data = models.UserInfo.objects.all()
+    return render(request, "user_list.html", {"queryset": user_data})
